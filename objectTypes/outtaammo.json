@@ -1,0 +1,57 @@
+{
+	"name": "outtaammo",
+	"plugin-id": "Sprite",
+	"sid": 971327575361185,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 317,
+						"height": 35,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2583165,
+						"collisionPoly": {
+							"points": [
+								0.013157894736842105,
+								0.11764705882352941,
+								0.5,
+								0.29411764705882354,
+								0.9802631578947368,
+								0.11764705882352941,
+								0.9868421052631579,
+								0.5,
+								0.9539473684210527,
+								0.5882352941176471,
+								0.5,
+								0.6470588235294118,
+								0.03289473684210526,
+								0.6470588235294118,
+								0.02631578947368421,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 531821673372665,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

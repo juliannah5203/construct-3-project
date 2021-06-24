@@ -1,0 +1,72 @@
+{
+	"name": "Crusher",
+	"plugin-id": "Sprite",
+	"sid": 885549925662362,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Spawnpoint",
+			"type": "number",
+			"desc": "",
+			"sid": 113724765893790
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 859173443691787
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 112,
+						"height": 199,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4866351,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								1,
+								0,
+								0.955357142857143,
+								0.4974874371859296,
+								0.9821428571428572,
+								0.9899497487437188,
+								0.48214285714285715,
+								0.9899497487437185,
+								0.1249999999999999,
+								0.9949748743718594,
+								0.017857142857142856,
+								0.9974874371859297,
+								0.035714285714285726,
+								0.5075376884422109
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 675331690444106,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

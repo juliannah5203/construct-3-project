@@ -1,0 +1,82 @@
+{
+	"name": "Player",
+	"plugin-id": "Sprite",
+	"sid": 595696236559529,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "XSpawn",
+			"type": "number",
+			"desc": "",
+			"sid": 404407019332637
+		},
+		{
+			"name": "YSpawn",
+			"type": "number",
+			"desc": "",
+			"sid": 598854738796747
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 656670351991375
+		},
+		{
+			"behaviorId": "EightDir",
+			"name": "8Direction",
+			"sid": 388075701477028
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 519285407580323
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 437,
+						"height": 737,
+						"originX": 0.4375,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3574235,
+						"collisionPoly": {
+							"points": [
+								0.06770833333333331,
+								0.0017361111111111466,
+								0.7558519260106792,
+								0,
+								0.7701361079328757,
+								0.7675801861902605,
+								0.5961336765827617,
+								0.9982638888888887,
+								0.18489583333333334,
+								1,
+								0.057291666666666664,
+								0.7430555555555552
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 380045137385191,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

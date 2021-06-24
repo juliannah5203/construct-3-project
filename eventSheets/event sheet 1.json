@@ -1,0 +1,1858 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "Player",
+					"sid": 189653198340935,
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 506001606627006,
+					"parameters": {
+						"x": "Player.XSpawn",
+						"y": "Player.YSpawn"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "sounds",
+					"sid": 693948531905425,
+					"parameters": {
+						"audio-file": "oh-no",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 411863184171549
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 162901278658522
+				}
+			],
+			"actions": [
+				{
+					"id": "rotate-clockwise",
+					"objectClass": "Spinner",
+					"sid": 837311764061899,
+					"parameters": {
+						"degrees": "1"
+					}
+				},
+				{
+					"id": "rotate-clockwise",
+					"objectClass": "Firestar",
+					"sid": 196323907841776,
+					"parameters": {
+						"degrees": "4"
+					}
+				}
+			],
+			"sid": 794330349509515
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-arrived",
+					"objectClass": "Infected",
+					"sid": 492639270340883,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 565591346857417,
+					"parameters": {
+						"group-name": "\"mirror\"",
+						"state": "activated"
+					}
+				}
+			],
+			"sid": 974200082525745,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-mirrored",
+							"objectClass": "Infected",
+							"sid": 255704860659964,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Infected",
+							"sid": 650686261780936,
+							"parameters": {
+								"state": "mirrored"
+							}
+						},
+						{
+							"id": "find-path",
+							"objectClass": "Infected",
+							"sid": 651325579580709,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"x": "Infected.X + (Infected.leftOrRight * 150)",
+								"y": "Infected.Y"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Infected",
+							"sid": 686127469483694,
+							"parameters": {
+								"instance-variable": "leftOrRight",
+								"value": "Infected.leftOrRight + (-2 * Infected.leftOrRight)"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 564084113734614,
+							"parameters": {
+								"group-name": "\"mirror\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 205222375000592
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "mirror",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-mirrored",
+									"objectClass": "Infected",
+									"sid": 944710643973480
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Infected",
+									"sid": 808988490510436,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								},
+								{
+									"id": "find-path",
+									"objectClass": "Infected",
+									"sid": 724317854639298,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"x": "Infected.X + (Infected.leftOrRight * 150)",
+										"y": "Infected.Y"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Infected",
+									"sid": 444292636754864,
+									"parameters": {
+										"instance-variable": "leftOrRight",
+										"value": "Infected.leftOrRight + (-2 * Infected.leftOrRight)"
+									}
+								}
+							],
+							"sid": 959993374264464
+						}
+					],
+					"sid": 716694826066884
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 493711525589557
+				}
+			],
+			"actions": [
+				{
+					"id": "find-path",
+					"objectClass": "Infected",
+					"sid": 943115019644006,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"x": "Infected.X - 150",
+						"y": "Infected.Y"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Infected",
+					"sid": 597000234870919,
+					"parameters": {
+						"instance-variable": "leftOrRight",
+						"value": "Infected.leftOrRight + (-2 * Infected.leftOrRight)"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 180896165762443,
+					"parameters": {
+						"group-name": "\"After Sanitizer\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "add-child",
+					"objectClass": "Crusher",
+					"sid": 728432057047450,
+					"parameters": {
+						"child": "Barrier",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": true,
+						"transform-z-elevation": true,
+						"destroy-with-parent": false
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Crusher",
+					"sid": 244252020872109,
+					"parameters": {
+						"instance-variable": "Spawnpoint",
+						"value": "Crusher.Y"
+					}
+				},
+				{
+					"id": "add-child",
+					"objectClass": "GameOver",
+					"sid": 906458456445054,
+					"parameters": {
+						"child": "retry",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": true,
+						"transform-z-elevation": true,
+						"destroy-with-parent": false
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "sounds",
+					"sid": 177657010735043,
+					"parameters": {
+						"audio-file": "background",
+						"loop": "looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "add-child",
+					"objectClass": "GameOver",
+					"sid": 277830580375912,
+					"parameters": {
+						"child": "outtalives",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": true,
+						"transform-z-elevation": true,
+						"destroy-with-parent": false
+					}
+				},
+				{
+					"id": "add-child",
+					"objectClass": "GameOver",
+					"sid": 873496242342773,
+					"parameters": {
+						"child": "outtaammo",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": true,
+						"transform-z-elevation": true,
+						"destroy-with-parent": false
+					}
+				},
+				{
+					"id": "add-child",
+					"objectClass": "victory",
+					"sid": 523706598439014,
+					"parameters": {
+						"child": "playagain",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": true,
+						"transform-z-elevation": true,
+						"destroy-with-parent": false
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Infectednum",
+					"sid": 196700367250009,
+					"parameters": {
+						"instance-variable": "Zombies",
+						"value": "14"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Sanitizer",
+					"sid": 489666140137340,
+					"parameters": {
+						"instance-variable": "ammo",
+						"value": "10"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "lifebar",
+					"sid": 112045960659600,
+					"parameters": {
+						"instance-variable": "Lives",
+						"value": "5"
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "Lives",
+					"sid": 719868540220810,
+					"parameters": {
+						"text": "lifebar.lives"
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "Infecteds",
+					"sid": 804158786453876,
+					"parameters": {
+						"text": "Infected.zombies"
+					}
+				},
+				{
+					"id": "set-silent",
+					"objectClass": "sounds",
+					"sid": 445692752529452,
+					"parameters": {
+						"mode": "not-silent"
+					}
+				}
+			],
+			"sid": 984090980410199
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-path-found",
+					"objectClass": "Infected",
+					"sid": 787165387545980,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"actions": [
+				{
+					"id": "move-along-path",
+					"objectClass": "Infected",
+					"sid": 295485466573122,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"sid": 142326506112863
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-code-pressed",
+					"objectClass": "Keyboard",
+					"sid": 516188247567842,
+					"parameters": {
+						"keycode": "37"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-mirrored",
+					"objectClass": "Player",
+					"sid": 403663803697327,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 377299019821700,
+					"parameters": {
+						"group-name": "\"right\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 801657937372889,
+					"parameters": {
+						"group-name": "\"left\"",
+						"state": "deactivated"
+					}
+				}
+			],
+			"sid": 846952186947145
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-code-pressed",
+					"objectClass": "Keyboard",
+					"sid": 880778835697752,
+					"parameters": {
+						"keycode": "39"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-mirrored",
+					"objectClass": "Player",
+					"sid": 254032738667822,
+					"parameters": {
+						"state": "mirrored"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 229118004133335,
+					"parameters": {
+						"group-name": "\"left\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 364426500514643,
+					"parameters": {
+						"group-name": "\"right\"",
+						"state": "deactivated"
+					}
+				}
+			],
+			"sid": 756244030773205
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Before Sanitizer",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 209926147578946,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-at-angle",
+							"objectClass": "Sanitizer",
+							"sid": 748428243368987,
+							"parameters": {
+								"angle": "90",
+								"distance": "Sanitizer.upDown + (-2 * Sanitizer.upDown)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Sanitizer",
+							"sid": 464654480798954,
+							"parameters": {
+								"instance-variable": "upDown",
+								"value": "Sanitizer.upDown + (-2 * Sanitizer.upDown)"
+							}
+						}
+					],
+					"sid": 627685918087900
+				}
+			],
+			"sid": 730398587839217
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "After Sanitizer",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "canShoot",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-code-pressed",
+									"objectClass": "Keyboard",
+									"sid": 666245236684634,
+									"parameters": {
+										"keycode": "32"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Sanitizer",
+									"sid": 944159581709403,
+									"parameters": {
+										"object": "Bullet",
+										"layer": "1",
+										"image-point": "1",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Sanitizer",
+									"sid": 900759111946847,
+									"parameters": {
+										"instance-variable": "ammo",
+										"value": "Sanitizer.ammo - 1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "bullets",
+									"sid": 100651223232107,
+									"parameters": {
+										"text": "\"Bullets: \""
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "bullets",
+									"sid": 878167865720130,
+									"parameters": {
+										"text": "Sanitizer.ammo"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 497877312630396,
+									"parameters": {
+										"group-name": "\"canShoot\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 717113944493211,
+									"parameters": {
+										"seconds": "0.7"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 756379594651142,
+									"parameters": {
+										"group-name": "\"canShoot\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 722956180229876
+						}
+					],
+					"sid": 682548061092839
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "left",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-code-pressed",
+									"objectClass": "Keyboard",
+									"sid": 197511189137006,
+									"parameters": {
+										"keycode": "37"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Sanitizer",
+									"sid": 740907080354867,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 382382956576275,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 771140165088787,
+									"parameters": {
+										"group-name": "\"right\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 286148692278037,
+									"parameters": {
+										"group-name": "\"left\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 434846737596229
+						}
+					],
+					"sid": 196171774188545
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "right",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-code-pressed",
+									"objectClass": "Keyboard",
+									"sid": 395465644817703,
+									"parameters": {
+										"keycode": "39"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Sanitizer",
+									"sid": 675345101033042,
+									"parameters": {
+										"state": "mirrored"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 501665807828750,
+									"parameters": {
+										"state": "mirrored"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 901767832780167,
+									"parameters": {
+										"group-name": "\"left\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 462756932460761,
+									"parameters": {
+										"group-name": "\"right\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 504584238052552
+						}
+					],
+					"sid": 186439466702453
+				}
+			],
+			"sid": 478639023274174
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 892934675846041,
+					"parameters": {
+						"object": "Sanitizer"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-scale",
+					"objectClass": "Sanitizer",
+					"sid": 917613152884453,
+					"parameters": {
+						"scale": "0.05"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Amount",
+					"sid": 243011385921313,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "StartNarra",
+					"sid": 699555155856169,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "hint",
+					"sid": 444298305827471,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "add-child",
+					"objectClass": "Player",
+					"sid": 369453666558596,
+					"parameters": {
+						"child": "Sanitizer",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": true,
+						"transform-z-elevation": true,
+						"destroy-with-parent": false
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Sanitizer",
+					"sid": 418786030080516,
+					"parameters": {
+						"x": "Player.X + 10",
+						"y": "Player.Y"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 260043728416857,
+					"parameters": {
+						"group-name": "\"After Sanitizer\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 866498487417418,
+					"parameters": {
+						"group-name": "\"Before Sanitizer\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Sanitizer",
+					"sid": 655034635392567,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"GlowHorizontal\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "sounds",
+					"sid": 552409259587000,
+					"parameters": {
+						"audio-file": "ding～",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "bullets",
+					"sid": 460296468712262,
+					"parameters": {
+						"text": "Sanitizer.ammo"
+					}
+				}
+			],
+			"sid": 355416210263576
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Infected",
+					"sid": 213185484822713,
+					"parameters": {
+						"object": "Bullet"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Infected",
+					"sid": 815023807203007
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 494205303828811
+				},
+				{
+					"id": "set-width",
+					"objectClass": "Infectednum",
+					"sid": 617196621721968,
+					"parameters": {
+						"width": "Infectednum.Width-16.57"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "sounds",
+					"sid": 113619011846829,
+					"parameters": {
+						"audio-file": "screaming",
+						"loop": "not-looping",
+						"volume": "-8",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Infectednum",
+					"sid": 655492513655203,
+					"parameters": {
+						"instance-variable": "Zombies",
+						"value": "Infectednum.zombies - 1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Infecteds",
+					"sid": 352108222037358,
+					"parameters": {
+						"text": "\"Infected: \""
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "Infecteds",
+					"sid": 574271089559859,
+					"parameters": {
+						"text": "Infectednum.Zombies"
+					}
+				}
+			],
+			"sid": 168585440574036
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Bullet",
+					"sid": 992914605870956,
+					"parameters": {
+						"object": "Platform"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 738463310377668
+				}
+			],
+			"sid": 469658878562375
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 936002773130347,
+					"parameters": {
+						"object": "Infected"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 548113139416532,
+					"parameters": {
+						"x": "Player.XSpawn",
+						"y": "Player.YSpawn"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "lifebar",
+					"sid": 230215586361692,
+					"parameters": {
+						"width": "lifebar.Width-25"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "sounds",
+					"sid": 589786865773191,
+					"parameters": {
+						"audio-file": "oh-no",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "lifebar",
+					"sid": 942707957065006,
+					"parameters": {
+						"instance-variable": "Lives",
+						"value": "lifebar.Lives - 1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Lives",
+					"sid": 730510711140109,
+					"parameters": {
+						"text": "\"Lives: \""
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "Lives",
+					"sid": 337106065459175,
+					"parameters": {
+						"text": "lifebar.lives"
+					}
+				}
+			],
+			"sid": 842029316958317
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Bullet",
+					"sid": 807605665654003
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "Amount",
+					"sid": 324051635995486,
+					"parameters": {
+						"width": "Amount.Width - 11.3"
+					}
+				}
+			],
+			"sid": 348890589779394,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-group-active",
+							"objectClass": "System",
+							"sid": 704724906752586,
+							"parameters": {
+								"group-name": "\"left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Bullet",
+							"sid": 951517554149680,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"speed": "300"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Bullet",
+							"sid": 182274636209056,
+							"parameters": {
+								"angle": "0"
+							}
+						}
+					],
+					"sid": 307659192505720
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-group-active",
+							"objectClass": "System",
+							"sid": 111564897830491,
+							"parameters": {
+								"group-name": "\"right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Bullet",
+							"sid": 514850941023031,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"speed": "-300"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Bullet",
+							"sid": 990769747950908,
+							"parameters": {
+								"angle": "180"
+							}
+						}
+					],
+					"sid": 959623894247413
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 478387274960575,
+					"parameters": {
+						"interval-seconds": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-position",
+					"objectClass": "Firestar",
+					"sid": 618469933390277,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"x": "Firestar.X + (Firestar.changedir * 400)",
+						"y": "Firestar.Y",
+						"mode": "direct"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Firestar",
+					"sid": 618599244849657,
+					"parameters": {
+						"instance-variable": "changedir",
+						"value": "Firestar.changedir + (-2 * Firestar.changedir)"
+					}
+				}
+			],
+			"sid": 567397697727842
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 608311917452672,
+					"parameters": {
+						"object": "Firestar"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 145911989325905,
+					"parameters": {
+						"x": "Player.XSpawn",
+						"y": "Player.YSpawn"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "lifebar",
+					"sid": 750884177342300,
+					"parameters": {
+						"width": "lifebar.Width - 25"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "sounds",
+					"sid": 380175825747196,
+					"parameters": {
+						"audio-file": "oh-no",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "lifebar",
+					"sid": 822976212575302,
+					"parameters": {
+						"instance-variable": "Lives",
+						"value": "lifebar.Lives - 1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Lives",
+					"sid": 279926723189682,
+					"parameters": {
+						"text": "\"Lives: \""
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "Lives",
+					"sid": 589643119167121,
+					"parameters": {
+						"text": "lifebar.Lives"
+					}
+				}
+			],
+			"sid": 621118309089388
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 545066812298594,
+					"parameters": {
+						"object": "Crusher"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 161747807791916,
+					"parameters": {
+						"x": "Player.XSpawn",
+						"y": "Player.YSpawn"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "lifebar",
+					"sid": 424198843896661,
+					"parameters": {
+						"width": "lifebar.Width-25"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "sounds",
+					"sid": 716718669323140,
+					"parameters": {
+						"audio-file": "oh-no",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "lifebar",
+					"sid": 924515509309272,
+					"parameters": {
+						"instance-variable": "Lives",
+						"value": "lifebar.Lives - 1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Lives",
+					"sid": 301274256402229,
+					"parameters": {
+						"text": "\"Lives: \""
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "Lives",
+					"sid": 238608263864103,
+					"parameters": {
+						"text": "lifebar.Lives"
+					}
+				}
+			],
+			"sid": 289392177356261
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-width",
+					"objectClass": "Amount",
+					"sid": 363274043705737,
+					"parameters": {
+						"comparison": 3,
+						"width": "10"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 199172305963884,
+					"parameters": {
+						"group-name": "\"canShoot\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "Amount",
+					"sid": 501751526033711,
+					"parameters": {
+						"width": "0"
+					}
+				},
+				{
+					"id": "set-silent",
+					"objectClass": "sounds",
+					"sid": 878097884330992,
+					"parameters": {
+						"mode": "silent"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 721094707999370,
+					"parameters": {
+						"x": "Player.XSpawn",
+						"y": "Player.YSpawn"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "GameOver",
+					"sid": 233073235060042,
+					"parameters": {
+						"x": "Player.X",
+						"y": "250"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "outtalives",
+					"sid": 464534878053493,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 519575885717169
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Refill",
+					"sid": 174126424558792,
+					"parameters": {
+						"object": "Player"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "Amount",
+					"sid": 910205462402019,
+					"parameters": {
+						"width": "115"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Level2",
+					"sid": 845807529116200,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 287380159515907,
+					"parameters": {
+						"group-name": "\"canShoot\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Refill",
+					"sid": 201777938726690
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 736411685381873,
+					"parameters": {
+						"instance-variable": "XSpawn",
+						"value": "Player.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 563992945997752,
+					"parameters": {
+						"instance-variable": "YSpawn",
+						"value": "Player.Y - 20"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "sounds",
+					"sid": 325969754555714,
+					"parameters": {
+						"audio-file": "ding～",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Sanitizer",
+					"sid": 165401977855329,
+					"parameters": {
+						"instance-variable": "ammo",
+						"value": "10"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "bullets",
+					"sid": 134298606859564,
+					"parameters": {
+						"text": "\"Bullets: \""
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "bullets",
+					"sid": 489467960661724,
+					"parameters": {
+						"text": "Sanitizer.ammo"
+					}
+				}
+			],
+			"sid": 764315466035742
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 672879243298088,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-at-angle",
+					"objectClass": "Refill",
+					"sid": 391589190918268,
+					"parameters": {
+						"angle": "0 + (Refill.upDown * 90)",
+						"distance": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Refill",
+					"sid": 916237139447568,
+					"parameters": {
+						"instance-variable": "upDown",
+						"value": "Refill.upDown + (-2 * Refill.upDown)"
+					}
+				}
+			],
+			"sid": 530129159570798
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "Bullet",
+					"sid": 927347845969452,
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 279626778986177
+				}
+			],
+			"sid": 751698568612060
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-y",
+					"objectClass": "Crusher",
+					"sid": 623594114229929,
+					"parameters": {
+						"comparison": 3,
+						"y-co-ordinate": "Crusher.Spawnpoint - 37"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-active",
+					"objectClass": "Crusher",
+					"sid": 490380121326987,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 714493253217752,
+					"parameters": {
+						"seconds": "0.4"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "Crusher",
+					"sid": 119862267632415,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "active"
+					}
+				}
+			],
+			"sid": 246608497401374
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-width",
+					"objectClass": "lifebar",
+					"sid": 245479796163953,
+					"parameters": {
+						"comparison": 2,
+						"width": "10"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 618652460496793,
+					"parameters": {
+						"x": "Player.XSpawn",
+						"y": "Player.YSpawn"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 231916822290133,
+					"parameters": {
+						"group-name": "\"canShoot\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "lifebar",
+					"sid": 541217675118971,
+					"parameters": {
+						"width": "0"
+					}
+				},
+				{
+					"id": "set-silent",
+					"objectClass": "sounds",
+					"sid": 143488761410404,
+					"parameters": {
+						"mode": "silent"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "GameOver",
+					"sid": 187061743484166,
+					"parameters": {
+						"x": "Player.X",
+						"y": "250"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "outtaammo",
+					"sid": 326668090650198,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 442271306072868
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-width",
+					"objectClass": "Infectednum",
+					"sid": 903152980196755,
+					"parameters": {
+						"comparison": 2,
+						"width": "14"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "Infectednum",
+					"sid": 652767362812334,
+					"parameters": {
+						"width": "0"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 956916031366004,
+					"parameters": {
+						"seconds": "1.8"
+					}
+				},
+				{
+					"id": "set-silent",
+					"objectClass": "sounds",
+					"sid": 888085782479091,
+					"parameters": {
+						"mode": "silent"
+					}
+				}
+			],
+			"sid": 525578663370556
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 451373700162001,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "retry"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 508626494871787
+				}
+			],
+			"sid": 978681726835234
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 497942751449604,
+					"parameters": {
+						"object": "retry"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 293131882867312,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 624185688622291
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 882597165965691,
+					"parameters": {
+						"object": "retry"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 436042695431210,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 608413688298997
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 836820592288975,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "playagain"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 789533353056410
+				}
+			],
+			"sid": 241969960385486
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 168748975052356,
+					"parameters": {
+						"object": "playagain"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 458078540642216,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 590043243048980
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 325158671404859,
+					"parameters": {
+						"object": "playagain"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 531160845610085,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 331640876515010
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Infectednum",
+					"sid": 613838970435326,
+					"parameters": {
+						"instance-variable": "Zombies",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 229414698329475,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "victory",
+					"sid": 469622370108478,
+					"parameters": {
+						"x": "Player.X",
+						"y": "250"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 534648791462616,
+					"parameters": {
+						"x": "Player.XSpawn",
+						"y": "Player.YSpawn"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 264548791122560,
+					"parameters": {
+						"group-name": "\"canShoot\"",
+						"state": "deactivated"
+					}
+				}
+			],
+			"sid": 304396608326024
+		}
+	],
+	"sid": 591492333555148
+}

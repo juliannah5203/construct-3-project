@@ -1,0 +1,15 @@
+{
+	"name": "hint",
+	"plugin-id": "Text",
+	"sid": 413103486744296,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 598905920405670
+		}
+	],
+	"effectTypes": []
+}

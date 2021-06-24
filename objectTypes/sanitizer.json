@@ -1,0 +1,88 @@
+{
+	"name": "Sanitizer",
+	"plugin-id": "Sprite",
+	"sid": 402179070112036,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "upDown",
+			"type": "number",
+			"desc": "",
+			"sid": 264936554045474
+		},
+		{
+			"name": "ammo",
+			"type": "number",
+			"desc": "",
+			"sid": 774284568081928
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "glowhorizontal",
+			"name": "GlowHorizontal"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 168,
+						"height": 399,
+						"originX": 0.5119047619047619,
+						"originY": 0.5664160401002506,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3464906,
+						"collisionPoly": {
+							"points": [
+								0.4166666666666667,
+								0.17543859649122806,
+								0.45238095238095233,
+								0,
+								0.8244047619047618,
+								0.017543859649122806,
+								0.831845238095238,
+								0.0501253132832081,
+								0.545386904761905,
+								0.03696741854636604,
+								0.5762648809523812,
+								0.1707393483709274,
+								0.9910714285714286,
+								0.26315789473684226,
+								0.9970238095238095,
+								0.8972431077694236,
+								0.4553571428571429,
+								1,
+								0,
+								0.9072681704260651,
+								0.005952380952380949,
+								0.27819548872180455
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0.9285714285714286,
+								"y": 0.03007518796992481
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 474189916911154,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

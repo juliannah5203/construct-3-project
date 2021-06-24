@@ -1,0 +1,15 @@
+{
+	"name": "bullets",
+	"plugin-id": "Text",
+	"sid": 889969542863854,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 696365213844229
+		}
+	],
+	"effectTypes": []
+}

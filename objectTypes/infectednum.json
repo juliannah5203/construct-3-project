@@ -1,0 +1,50 @@
+{
+	"name": "Infectednum",
+	"plugin-id": "Sprite",
+	"sid": 825729941611934,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Zombies",
+			"type": "number",
+			"desc": "",
+			"sid": 630443898265612
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 676644971893602
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 277,
+						"height": 41,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8005990,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 420199292430161,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

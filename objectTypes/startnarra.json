@@ -1,0 +1,15 @@
+{
+	"name": "StartNarra",
+	"plugin-id": "Text",
+	"sid": 576850774866626,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 580077037506663
+		}
+	],
+	"effectTypes": []
+}
