@@ -1,9 +1,9 @@
 # Covid Blaster
-## project built using Construct 3
+project built using Construct 3
 
 
-#### Graphical Game Instructions
-##### Controls: 
+### Graphical Game Instructions
+#### Controls: 
 
 Press ← to move left.<br/>
 Press → to move right.<br/>
@@ -11,15 +11,15 @@ Press ↑ to jump, hold it to jump higher, double tap to double jump.<br/>
 Press SPACEBAR to shoot.<br/>
  
 
-###### Objective:
+#### Objective:
 
 The objective of this game is to progress through the levels by going all the way to the right and eliminate all the enemies that exist in the game before you use up all the ammo or lives.<br/>
 
  
 
-####### Credits:
+#### Credits:
 
-######## Outside assets:
+#### Outside assets:
 
 Brick platforms: Handpainted Stone Wall Textures | OpenGameArt.org (Links to an external site.)<br/>
 Background: Abandoned City Background | OpenGameArt.org (Links to an external site.)<br/>
@@ -30,7 +30,7 @@ Background music: Freesound - "nervous 0T51m" by Setuniman (Links to an external
 Refill sound: Freesound - "Bike, Bell Ding, Single, 01-01.wav" by InspectorJ (Links to an external site.)<br/>
 Spinning platform: Stone Wall | OpenGameArt.org (Links to an external site.)<br/>
 
-######## Assets made by team:
+#### Assets made by team:
 
 Virus spinners: Max Mollison<br/>
 Crushers: Max Mollison<br/>
