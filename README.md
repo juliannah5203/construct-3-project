@@ -5,15 +5,15 @@
 Graphical Game Instructions
 Controls: 
 
-Press ← to move left.
-Press → to move right.
-Press ↑ to jump, hold it to jump higher, double tap to double jump.
-Press SPACEBAR to shoot.
+Press ← to move left.<br/>
+Press → to move right.<br/>
+Press ↑ to jump, hold it to jump higher, double tap to double jump.<br/>
+Press SPACEBAR to shoot.<br/>
  
 
 Objective:
 
-The objective of this game is to progress through the levels by going all the way to the right and eliminate all the enemies that exist in the game before you use up all the ammo or lives.
+The objective of this game is to progress through the levels by going all the way to the right and eliminate all the enemies that exist in the game before you use up all the ammo or lives.<br/>
 
  
 
@@ -21,26 +21,26 @@ Credits:
 
 Outside assets:
 
-Brick platforms: Handpainted Stone Wall Textures | OpenGameArt.org (Links to an external site.)
-Background: Abandoned City Background | OpenGameArt.org (Links to an external site.)
-Infected: Shooter | OpenGameArt.org (Links to an external site.)
-Infected death noise: Freesound - "Man screaming.wav" by Archeos (Links to an external site.)
-Player death noise: Freesound - "Oh noes" by Junuxx (Links to an external site.)
-Background music: Freesound - "nervous 0T51m" by Setuniman (Links to an external site.)
-Refill sound: Freesound - "Bike, Bell Ding, Single, 01-01.wav" by InspectorJ (Links to an external site.)
-Spinning platform: Stone Wall | OpenGameArt.org (Links to an external site.)
+Brick platforms: Handpainted Stone Wall Textures | OpenGameArt.org (Links to an external site.)<br/>
+Background: Abandoned City Background | OpenGameArt.org (Links to an external site.)<br/>
+Infected: Shooter | OpenGameArt.org (Links to an external site.)<br/>
+Infected death noise: Freesound - "Man screaming.wav" by Archeos (Links to an external site.)<br/>
+Player death noise: Freesound - "Oh noes" by Junuxx (Links to an external site.)<br/>
+Background music: Freesound - "nervous 0T51m" by Setuniman (Links to an external site.)<br/>
+Refill sound: Freesound - "Bike, Bell Ding, Single, 01-01.wav" by InspectorJ (Links to an external site.)<br/>
+Spinning platform: Stone Wall | OpenGameArt.org (Links to an external site.)<br/>
 
 Assets made by team:
 
-Virus spinners: Max Mollison
-Crushers: Max Mollison
-Player: Julianna He, Max Mollison
-Bullet: Max Mollison
-Sanitizer Bottle: Max Mollison
-Ammo bar: Max Mollison
-Life bar: Julianna He
-Infected bar: Julianna He
-Game over screen: Max Mollison
-Victory screen: Max Mollison
-Code: Julianna He, Max Mollison, Zhengheng Li
+Virus spinners: Max Mollison<br/>
+Crushers: Max Mollison<br/>
+Player: Julianna He, Max Mollison<br/>
+Bullet: Max Mollison<br/>
+Sanitizer Bottle: Max Mollison<br/>
+Ammo bar: Max Mollison<br/>
+Life bar: Julianna He<br/>
+Infected bar: Julianna He<br/>
+Game over screen: Max Mollison<br/>
+Victory screen: Max Mollison<br/>
+Code: Julianna He, Max Mollison, Zhengheng Li<br/>
 
